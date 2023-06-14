@@ -35,7 +35,9 @@
 .card{
     display: flex;
     flex-direction: column;
-    max-width: 600px;
+    border: 2px solid #61DAFB;
+    overflow: hidden;
+    border-radius: 18px;
 }
 
 

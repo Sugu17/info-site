@@ -50,7 +50,7 @@ function Card(){
             <CardHeader/>
             <CardBody/>
         </div>
-    )
+    );
 }
 
 export default function App() {
