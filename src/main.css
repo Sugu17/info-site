@@ -1,0 +1,79 @@
+/* Logo */
+
+
+
+.logo{
+    display: inline-flex;
+    align-items: center;
+    column-gap: 1rem;
+    white-space: nowrap;
+    font-weight: 700;
+    font-size: 2.5rem;
+    color:#61DAFB;
+}
+
+.logo__icon{
+    display: inline-block;
+    height: 48px;
+    width: 48px;
+}
+
+/* List */
+.list{
+    font-size: 1.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.list .list-item::marker{
+    color: #61DAFB;
+    font-size: 2.5rem;
+}
+
+/* Cards */
+.card{
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+}
+
+
+/* Card Header */
+.card__header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #21222A;
+    color: #DEEBF8;
+    padding: 2.2rem;
+}
+
+.header__desc{
+    white-space: nowrap;
+}
+
+/* Card Body */
+.card__body{
+    background-color: #282D35;
+    color: #FFFFFF;
+    padding:5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.body-bg{
+    position: absolute;
+    transform: rotate(-115deg);
+    right: -10.5rem;
+}
+
+@media screen and (max-width:768px) {
+    .body-bg{
+        display: none;
+    }
+}
+
+.body-title{
+    margin-top: 0;
+}
