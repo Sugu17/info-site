@@ -1,7 +1,4 @@
 /* Logo */
-
-
-
 .logo{
     display: inline-flex;
     align-items: center;
@@ -18,19 +15,6 @@
     width: 48px;
 }
 
-/* List */
-.list{
-    font-size: 1.8rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.list .list-item::marker{
-    color: #61DAFB;
-    font-size: 2.5rem;
-}
-
 /* Cards */
 .card{
     display: flex;
@@ -40,10 +24,10 @@
     border-radius: 18px;
 }
 
-
 /* Card Header */
 .card__header{
     display: flex;
+    flex-wrap: nowrap;
     align-items: center;
     justify-content: space-between;
     background-color: #21222A;
@@ -51,9 +35,13 @@
     padding: 2.2rem;
 }
 
-.header__desc{
-    white-space: nowrap;
+.card__header.dark{
+    background-color: #FFFFFF;
+    color: #2B283A;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);   
+    z-index: 10;
 }
+
 
 /* Card Body */
 .card__body{
@@ -62,6 +50,11 @@
     padding:5rem;
     position: relative;
     overflow: hidden;
+}
+
+.card__body.dark{
+    background-color: #FFFFFF;
+    color: #2B283A;
 }
 
 .body-bg{
@@ -78,4 +71,88 @@
 
 .body-title{
     margin-top: 0;
+}
+
+/* List */
+.list{
+    font-size: 1.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.list .list-item::marker{
+    color: #61DAFB;
+    font-size: 2.5rem;
+}
+
+/* Buttons */
+
+/* Toggle Button */
+.toggle-btn{
+    display: flex;
+    align-items: center;
+    padding: 0.2rem 0;
+    height: 3rem;
+    width: 6.2rem;
+    background-color: #F5F5F5;
+    border-radius: 40px;
+    position: relative;
+}
+
+.toggle-btn.dark{
+    background-color: #2B283A;
+}
+
+.toggle-btn input[type="checkbox"]{
+    max-width: 0;
+    overflow: hidden;
+}
+
+.toggle-switch{
+    background-color: #222222;
+    display: inline-block;
+    height:30px;
+    width: 30px;
+    border-radius: 100%;
+    position: absolute;
+    transition: left 300ms ease-out;
+}
+
+.dark .toggle-switch{
+    background-color: #FFFFFF;
+}
+
+.left{
+    left: 3px;
+}
+
+.right{
+    left: calc(50% - 2px)
+}
+
+/* Toggle Container */
+.toggle-container{
+    display: flex;
+    flex-wrap: nowrap;
+    column-gap: 1rem;
+    align-items: center;
+}
+
+.dark .label-dark{
+    color: #D5D4D8;
+}
+
+.dark .label-light{
+    font-weight: 700;
+    color: inherit;
+}
+
+.label-dark{
+    font-weight: 700;
+    color: #D5D4D8;
+}
+
+.label-light{
+    color: #918E9B;
 }

@@ -1,4 +1,14 @@
+import { useState } from "react";
 import "/src/main.css";
+
+export default function App() {
+  const [darkMode,setDarkMode]=useState(true);
+  function handleToggle() {
+    setDarkMode((prevState) => !prevState);
+  }
+  return <Card togglerOn={darkMode} handleToggle={handleToggle} darkMode={darkMode}/>;
+}
+
 
 function Logo() {
   return (
@@ -11,12 +21,57 @@ function Logo() {
   );
 }
 
-function CardHeader() {
+function Card(props) {
   return (
-    <div className="card__header">
-      <Logo />
-      <span className="header__desc">React Course - Project 1</span>
+    <div className="card">
+      <CardHeader {...props} />
+      <CardBody {...props}/>
     </div>
+  );
+}
+
+function CardHeader(props) {
+  return (
+    <div className={"card__header "+(props.darkMode&&"dark")}>
+      <Logo />
+      <div className={"toggle-container "+(props.darkMode&&"dark")}>
+        <span className="label-light">Light</span>
+        <ToggleSwitch {...props}/>
+        <span className="label-dark">Dark</span>
+      </div>
+    </div>
+  );
+}
+
+function CardBody(props) {
+  return (
+    <div className={"card__body "+(props.darkMode && "dark")}>
+      <h2 className="body-title">Fun facts about React</h2>
+      <svg className="body-bg">
+        <use href="/src/assets/icons/react-bg.svg#react-bg"></use>
+      </svg>
+      <List />
+    </div>
+  );
+}
+
+function ToggleSwitch(props) {
+  console.log(props);
+  
+  let togglerClassName = "";
+  togglerClassName = props.togglerOn ? "toggle-switch left" : "toggle-switch right";
+
+  return (
+    <label htmlFor="toggler" className={"toggle-btn "+(props.darkMode&&"dark")}>
+      <span className={togglerClassName}></span>
+      <input
+        type="checkbox"
+        name="toggler"
+        id="toggler"
+        onChange={props.handleToggle}
+        defaultChecked={true}
+      />
+    </label>
   );
 }
 
@@ -32,27 +87,4 @@ function List() {
       </li>
     </ul>
   );
-}
-
-function CardBody(){
-    return (
-        <div className="card__body">
-            <h2 className="body-title">Fun facts about React</h2>
-            <svg className="body-bg"><use href="/src/assets/icons/react-bg.svg#react-bg"></use></svg>
-            <List/>
-        </div>
-    )
-}
-
-function Card(){
-    return (
-        <div className="card">
-            <CardHeader/>
-            <CardBody/>
-        </div>
-    );
-}
-
-export default function App() {
-  return <Card/>;
 }
